@@ -35,4 +35,4 @@ Quick Sort suele ser más rápido en datos desordenados porque tiene una complej
 En conclusión, la elección del algoritmo de ordenamiento depende en gran medida de la naturaleza de los datos a ordenar. Quick Sort es generalmente más eficiente para datos desordenados debido a su complejidad promedio de O(n log n), mientras que Insertion Sort puede ser extremadamente rápido para arreglos que ya están casi ordenados. Es importante considerar el tamaño y la estructura de los datos al seleccionar un algoritmo de ordenamiento para garantizar un rendimiento óptimo.
 
 ### Recomendaciones 
-Vi un error de memoria en Quick Sort, ya que en el arreglo original elige el pivote de la derecha, pero este suele ser contrap
+Vi un error de memoria en Quick Sort, ya que en el arreglo original elige el pivote de la derecha, pero este suele ser contraproducente en arreglos casi ordenados, por lo que se recomienda implementar una estrategia de selección de pivote más robusta, como elegir el pivote de manera aleatoria o utilizar la mediana de tres elementos para mejorar el rendimiento en casos desfavorables.
