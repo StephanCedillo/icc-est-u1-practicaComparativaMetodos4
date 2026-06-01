@@ -18,10 +18,9 @@
 
 ### Analisis Requerido 
 #### ¿ Que algoritmo fue más rápido en el escenario desordenado?
- En el caso de desordenado el Quick Sort fue significativamente más rápido que el Insertion Sort, especialmente a medida que el tamaño de la muestra aumentaba. Esto se debe a que Quick Sort tiene una complejidad promedio de O(n log n), mientras que Insertion Sort tiene una complejidad de O(n^2) en el peor caso. 
+ En el caso de desordenado el Quick Sort fue mucho más rápido que el Insertion Sort, especialmente a medida que el tamaño de la muestra aumentaba. Esto se debe a que Quick Sort tiene una complejidad promedio de O(n log n), mientras que Insertion Sort tiene una complejidad de O(n^2) en el peor caso. 
  #### ¿ Que algoritmo fue más rápido en el escenario casi ordenado?
- 
- Insertion Sort fue mas rapido que Quick Sort debido a su eficiencia en este tipo de datos, ya que puede ordenar rápidamente elementos cercanos a su posición final. Quick Sort, por otro lado, sufrió un rendimiento muy pobre debido a la elección de pivote y la naturaleza casi ordenada del arreglo, lo que llevó a una complejidad cercana a O(n^2).
+ Insertion Sort fue mas rapido que Quick Sort debido de como trabaja internamente el algoritmo, ya que Insertion Sort compara los elementos anteriores para ver si estan ordenados.
 #### ¿ El crecimiento de los datos afecto por igual a ambos algoritmos?
 
  Este si afecto a ambos ordenamientos, cuando se aumenta datos pero el que tenia un impacto mas grande fue el Insertion Sort, ya que su tiempo de ejecución se incrementó de manera exponencial, mientras que Quick Sort mantuvo un crecimiento mucho mejor por ser O(n log n)
