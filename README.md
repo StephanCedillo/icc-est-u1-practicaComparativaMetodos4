@@ -1,37 +1,131 @@
-## Universidad Politecnica Salesiana
-### Stephan Cedillo
+# UNIVERSIDAD POLITÉCNICA SALESIANA
 
-### Resultados Obtenidos
-#### Escenario 1: Comparación de Insertion Sort y Quick Sort 
-| Tamaño de muestra | Tiempo Insertion Sort (ms) | Tiempo Quick Sort (ms) | Algoritmo más rápido | Observación                                                                                                                          |
-| ----------------: | -------------------------: | ---------------------: | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-|            10 000 |                     46.638 |                  4.839 | Quick Sort           | Quick Sort fue aproximadamente 9.6 veces más rápido que Insertion Sort.                                                              |
-|            50 000 |                    700.367 |                 31.008 | Quick Sort           | La diferencia de rendimiento aumentó considerablemente al incrementar el tamaño de los datos.                                        |
-|           100 000 |                   2955.859 |                 95.502 | Quick Sort           | Quick Sort mantuvo una alta eficiencia, mientras que Insertion Sort presentó un crecimiento significativo en el tiempo de ejecución. |
+## Comparación de Algoritmos de Ordenamiento
 
-#### Escenario 2: Comparación de Insertion Sort y Quick Sort 
-| Tamaño de muestra | Tiempo Insertion Sort (ms) | Tiempo Quick Sort (ms) | Algoritmo más rápido | Observación                                                                                                                             |
-| ----------------: | -------------------------: | ---------------------: | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-|            10 001 |                      0.032 |                 28.521 | Insertion Sort       | Insertion Sort aprovechó que el arreglo estaba casi ordenado, obteniendo un tiempo extremadamente bajo.                                 |
-|            50 001 |                      0.103 |               1621.281 | Insertion Sort       | La diferencia de rendimiento fue muy grande a favor de Insertion Sort.                                                                  |
-|           100 001 |                      0.341 |               8964.159 | Insertion Sort       | Quick Sort presentó un desempeño muy inferior debido a la naturaleza casi ordenada de los datos y la estrategia de partición utilizada. |
+### Autor
 
-### Analisis Requerido 
-#### ¿ Que algoritmo fue más rápido en el escenario desordenado?
- En el caso de desordenado el Quick Sort fue mucho más rápido que el Insertion Sort, especialmente a medida que el tamaño de la muestra aumentaba. Esto se debe a que Quick Sort tiene una complejidad promedio de O(n log n), mientras que Insertion Sort tiene una complejidad de O(n^2) en el peor caso. 
- #### ¿ Que algoritmo fue más rápido en el escenario casi ordenado?
- Insertion Sort fue mas rapido que Quick Sort debido de como trabaja internamente el algoritmo, ya que Insertion Sort compara los elementos anteriores para ver si estan ordenados.
-#### ¿ El crecimiento de los datos afecto por igual a ambos algoritmos?
+Stephan Cedillo
 
- Este si afecto a ambos ordenamientos, cuando se aumenta datos pero el que tenia un impacto mas grande fue el Insertion Sort, ya que su tiempo de ejecución se incrementó de manera exponencial, mientras que Quick Sort mantuvo un crecimiento mucho mejor por ser O(n log n)
- 
- #### ¿ Porque Insertion sort fue tan rápido en el escenario casi ordenado? 
-Insertion Sort es especialmente eficiente para arreglos que ya están casi ordenados porque siempre va comparando el elemento actual con los anteriores y solo realiza movimientos mínimos para colocar cada elemento en su posición correcta. En un escenario casi ordenado, la mayoría de los elementos ya están cerca de su posición final, lo que permite que Insertion Sort complete el proceso con muy pocas comparaciones y movimientos, resultando en un tiempo de ejecución extremadamente bajo.
-#### ¿ Por que Quick Sort suele ser mas rapido en datos desordenados? 
-Quick Sort suele ser más rápido en datos desordenados porque tiene una complejidad promedio de O(n log n), lo que lo hace muy eficiente para grandes conjuntos de datos. En contraste, Insertion Sort tiene una complejidad de O(n^2) en el peor caso, lo que lo hace muy lento para grandes arreglos.
 
-### Conclusión 
-En conclusión, la elección del algoritmo de ordenamiento depende en gran medida de la naturaleza de los datos a ordenar. Quick Sort es generalmente más eficiente para datos desordenados debido a su complejidad promedio de O(n log n), mientras que Insertion Sort puede ser extremadamente rápido para arreglos que ya están casi ordenados. Es importante considerar el tamaño y la estructura de los datos al seleccionar un algoritmo de ordenamiento para garantizar un rendimiento óptimo.
+# 1. Introducción
 
-### Recomendaciones 
-Vi un error de memoria en Quick Sort, ya que en el arreglo original elige el pivote de la derecha, pero este suele ser contraproducente en arreglos casi ordenados, por lo que se recomienda implementar una estrategia de selección de pivote más robusta, como elegir el pivote de manera aleatoria o utilizar la mediana de tres elementos para mejorar el rendimiento en casos desfavorables.
+En este trabajo realicé una comparación experimental entre los algoritmos de ordenamiento Insertion Sort y Quick Sort. El objetivo fue analizar su rendimiento bajo diferentes condiciones de entrada para identificar en qué situaciones cada algoritmo ofrece mejores resultados.
+
+# 2. Objetivos
+
+## Objetivo General
+
+Comparar el rendimiento de los algoritmos Insertion Sort y Quick Sort mediante pruebas experimentales utilizando diferentes tamaños y tipos de escenarios.
+
+## Objetivos Específicos
+
+* Medir los tiempos de ejecución de ambos algoritmos.
+* Analizar el comportamiento de los algoritmos con datos desordenados.
+* Analizar el comportamiento de los algoritmos con datos casi ordenados.
+* Relacionar los resultados obtenidos mediante un análisis.
+
+# 3. Metodología
+
+Para realizar la comparación implementé los algoritmos Insertion Sort y Quick Sort en Java. Posteriormente ejecute las pruebas utilizando diferentes tamaños de arreglos( Que estan dentro de la Guia ):
+
+* 10 000 elementos
+* 50 000 elementos
+* 100 000 elementos
+
+Las pruebas se realizaron en dos escenarios:
+
+1. Arreglos completamente desordenados.
+2. Arreglos casi ordenados con una pequeño elemento agregado al final.
+
+Durante cada ejecución del algoritmo registré el tiempo necesario para completar el ordenamiento y posteriormente comparé los resultados obtenidos.
+
+# 4. Resultados Obtenidos
+
+## Escenario 1: Datos Desordenados
+
+| Tamaño de muestra | Tiempo Insertion Sort (ms) | Tiempo Quick Sort (ms) | Algoritmo más rápido |
+| ----------------: | -------------------------: | ---------------------: | -------------------- |
+|            10 000 |                     46.638 |                  4.839 | Quick Sort           |
+|            50 000 |                    700.367 |                 31.008 | Quick Sort           |
+|           100 000 |                   2955.859 |                 95.502 | Quick Sort           |
+
+### Observaciones
+
+* Quick Sort fue aproximadamente 10 veces más rápido para 10 000 elementos.
+* La diferencia de rendimiento aumentó considerablemente conforme creció la cantidad de datos.
+* Insertion Sort presentó un crecimiento exponencial a relacion con la cantidad de elementos.
+* Quick Sort mantuvo un crecimiento mucho más controlado gracias a su complejidad O(n log n).
+
+---
+
+## Escenario 2: Datos Casi Ordenados
+
+| Tamaño de muestra | Tiempo Insertion Sort (ms) | Tiempo Quick Sort (ms) | Algoritmo más rápido |
+| ----------------: | -------------------------: | ---------------------: | -------------------- |
+|            10 001 |                      0.032 |                 28.521 | Insertion Sort       |
+|            50 001 |                      0.103 |               1621.281 | Insertion Sort       |
+|           100 001 |                      0.341 |               8964.159 | Insertion Sort       |
+
+### Observaciones
+
+* Insertion Sort aprovechó que los datos ya estaban ordenados y no realizo muchas comparaciones ni movimientos.
+* Los tiempos obtenidos por Insertion Sort fueron extremadamente bajos.
+* Quick Sort tuvo un comportamiento muy malo.
+
+
+# 5. Análisis de Resultados
+
+## ¿Qué algoritmo fue más rápido en el escenario desordenado?
+
+En el escenario con datos completamente desordenados observé que Quick Sort fue significativamente más rápido que Insertion Sort en todos los tamaños evaluados.
+
+Esto ocurre porque Quick Sort posee una complejidad promedio de O(n log n), mientras que Insertion Sort tiene una complejidad O(n²). A medida que aumenta la cantidad de elementos, esta diferencia se vuelve cada vez más evidente.
+
+
+## ¿Qué algoritmo fue más rápido en el escenario casi ordenado?
+
+En el escenario casi ordenado el algoritmo que obtuvo mejores resultados fue Insertion Sort.
+
+Este comportamiento se debe a que Insertion Sort únicamente necesita realizar pequeñas correcciones cuando los elementos ya se encuentran cerca de su posición final, reduciendo considerablemente la cantidad de comparaciones y movimientos.
+
+
+## ¿El crecimiento de los datos afectó por igual a ambos algoritmos?
+
+No.
+
+El aumento de datos afectó a ambos algoritmos, pero el impacto fue mucho mayor en Insertion Sort cuando los datos estaban desordenados. Su tiempo de ejecución creció de forma muy acelerada debido a su complejidad cuadrática.
+
+Por otro lado, Quick Sort mantuvo un crecimiento más eficiente gracias a su complejidad promedio O(n log n).
+
+
+## ¿Por qué Insertion Sort fue tan rápido en el escenario casi ordenado?
+
+Insertion Sort funciona comparando cada elemento con los anteriores hasta encontrar su posición correcta.
+
+Cuando los datos ya están casi ordenados, la mayoría de los elementos ya se encuentran en la posición adecuada o muy cerca de ella, por lo que el algoritmo realiza muy pocos intercambios y comparaciones. Como resultado, el tiempo de ejecución disminuye considerablemente.
+
+
+## ¿Por qué Quick Sort suele ser más rápido en datos desordenados?
+
+Quick Sort divide el problema en subproblemas más pequeños mediante la selección de un pivote.
+
+Esta estrategia permite ordenar grandes cantidades de datos de manera eficiente, logrando una complejidad promedio O(n log n). Gracias a ello suele superar ampliamente a algoritmos simples como Insertion Sort cuando se trabaja con arreglos grandes y desordenados.
+
+
+# 6. Resultados Obtenidos comparados a la teoría
+
+Los resultados obtenidos coinciden con lo esperado según la teoría de complejidad computacional.
+
+Quick Sort demostró ser una excelente alternativa para conjuntos de datos grandes y desordenados, mientras que Insertion Sort mostró un rendimiento significativamente mejor cuando los datos ya se encontraban casi ordenados.
+
+También pude observar que la implementación de Quick Sort utilizada presenta una debilidad cuando el pivote seleccionado corresponde al último elemento del arreglo. Esta situación provoca desproporcionadas en arreglos casi ordenados lo que hace que de error de memoria, por lo cual implemente una forma de escoger el pivote mejor.
+
+
+# 7. Conclusiones
+
+Después de realizar las pruebas y analizar los resultados, concluyo que no existe un algoritmo de ordenamiento que sea el mejor en todos los escenarios.
+
+Quick Sort fue claramente superior cuando trabajé con datos desordenados, manteniendo tiempos de ejecución bajos incluso con grandes cantidades de elementos. Por otro lado, Insertion Sort obtuvo resultados extraordinarios cuando los arreglos ya estaban casi ordenados, alcanzando tiempos prácticamente instantáneos.
+
+Finalmente, comprobé que la elección de un algoritmo debe realizarse considerando las características de los datos de entrada o del escenario, ya que estas influyen directamente en el rendimiento que espera el usuario.
+
